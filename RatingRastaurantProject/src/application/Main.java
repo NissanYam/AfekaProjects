@@ -17,7 +17,7 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application implements Serializable{
-	private ObjectInputStream inFile;
+	private ObjectInputStream inFile; ///3
 	public RatingRestaurant ratingRestaurant;
 	
 	public void readFile() throws IOException, ClassNotFoundException {
