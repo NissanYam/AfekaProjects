@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InspectorConroller">
+   <children>
+      <Pane prefHeight="80.0" prefWidth="846.0" style="-fx-background-color: #D5F5E3;">
+         <children>
+            <Text layoutX="23.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu for the company" wrappingWidth="339.85426330566406">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <VBox layoutY="80.0" prefHeight="442.0" prefWidth="214.0" spacing="18.0">
+         <children>
+            <Button fx:id="addRestaurantButton" mnemonicParsing="false" onAction="#AddRestaurantOnAction" prefHeight="35.0" prefWidth="176.0" text="Adding a restaurant">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="addInspectorButton" mnemonicParsing="false" onAction="#AddInspectorOnAction" prefHeight="35.0" prefWidth="176.0" text="Adding an inspector">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="addNewReviewButton" mnemonicParsing="false" onAction="#AddReviewOnAction" prefHeight="35.0" prefWidth="176.0" text="Adding review by inspector">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="showAllReasturantsButton" mnemonicParsing="false" onAction="#ShowAllRestaurantsOnAction" prefHeight="35.0" prefWidth="176.0" text="Show all restaurants">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="showAllInspectprsButton" mnemonicParsing="false" onAction="#ShowAllInspectorsOnAction" prefHeight="35.0" prefWidth="176.0" text="Show all Inspectors">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ExitButton" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="26.0" prefWidth="176.0" text="Exit" />
+            <Label fx:id="massageLable" prefHeight="134.0" prefWidth="174.0" textAlignment="CENTER" textFill="RED" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <Pane fx:id="addRestaurantPane" layoutX="215.0" layoutY="80.0" prefHeight="442.0" prefWidth="632.0" visible="false">
+         <children>
+            <HBox layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="313.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurant name :" textAlignment="CENTER" wrappingWidth="146.9366455078125">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="setRestaurantNameText" prefHeight="26.0" prefWidth="155.0" />
+               </children>
+            </HBox>
+            <VBox layoutX="14.0" layoutY="110.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="297.0" prefWidth="511.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address :">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+                  <CheckBox fx:id="insertAreaCheckBox" mnemonicParsing="false" onAction="#handleInsertAreaCheckBox" text="Insert a new area" />
+                  <HBox prefHeight="28.0" prefWidth="326.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Area :">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="areaCombo" onAction="#SelectCityByArea" prefWidth="150.0" promptText="Select Area" />
+                        <TextField fx:id="AreaTextFile" disable="true" promptText="Enter an area" />
+                     </children>
+                  </HBox>
+                  <CheckBox fx:id="insertCityCheckBox" mnemonicParsing="false" onAction="#handleInsertCityCheckBox" text="Insert  a new city" />
+                  <HBox prefHeight="26.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City :">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="CityCombo1" prefWidth="150.0" promptText="Select City" />
+                        <TextField fx:id="CityTextFile" disable="true" promptText="Enter a city" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="214.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="House number :">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="setNumberToRestarantText" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="addRestaurantButton" mnemonicParsing="false" onAction="#addRestaurantButton" prefHeight="40.0" prefWidth="110.0" text="add restaurant" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <HBox layoutX="14.0" layoutY="54.0" prefHeight="41.0" prefWidth="354.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurant type :">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="restuarantTypeCombo" prefWidth="150.0" promptText="Select Type" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane fx:id="addReviewPane" layoutX="201.0" layoutY="80.0" prefHeight="442.0" prefWidth="646.0" visible="false">
+         <children>
+            <ComboBox fx:id="RestaurantCombo" layoutX="376.0" layoutY="78.0" prefWidth="150.0" promptText="Select Restaurant" visibleRowCount="300" />
+            <ComboBox fx:id="cityComboInAddReviewPane" layoutX="205.0" layoutY="78.0" onAction="#cityReviwOnActionCombo" prefWidth="150.0" promptText="City" />
+            <ComboBox fx:id="areaComboInAddReviewPane" layoutX="24.0" layoutY="78.0" onAction="#SelectCityByAreaReviewPane" prefWidth="150.0" promptText="Area" />
+            <TextField fx:id="InspectorLastText" layoutX="206.0" layoutY="30.0" promptText="Inspector last name" />
+            <VBox layoutX="24.0" layoutY="124.0" prefHeight="164.0" prefWidth="228.0" spacing="15.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Toilet cleaning">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Eating and drinking utensils">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Floor cleaning">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kitchen and bar cleaning">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox layoutX="252.0" layoutY="124.0" prefHeight="164.0" prefWidth="287.0" spacing="4.0">
+               <children>
+                  <Slider fx:id="sliderToilet" majorTickUnit="1.0" max="5.0" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="sliderEatAndDrink" majorTickUnit="1.0" max="5.0" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="sliderFloor" majorTickUnit="1.0" max="5.0" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="sliderKitchAndBar" majorTickUnit="1.0" max="5.0" showTickLabels="true" showTickMarks="true" />
+               </children>
+            </VBox>
+            <TextArea fx:id="opinionAboutRestaurantText" layoutX="14.0" layoutY="294.0" prefHeight="121.0" prefWidth="400.0" promptText="You can express an opinion about the restaurant here">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextArea>
+            <Button fx:id="InsertReviewButton" layoutX="425.0" layoutY="294.0" mnemonicParsing="false" onAction="#InsertReviewButton" prefHeight="48.0" prefWidth="112.0" text="Insert a review" />
+            <TextField fx:id="InspectorNameText" layoutX="25.0" layoutY="30.0" promptText="Inspector name" />
+            <TextField fx:id="InspectorIDText" layoutX="376.0" layoutY="30.0" promptText="Inspector ID" />
+            <Label fx:id="ShowToiletSlide" layoutX="559.0" layoutY="124.0" text="0" />
+            <Label fx:id="ShowEatDriSlide" layoutX="559.0" layoutY="166.0" text="0" />
+            <Label fx:id="ShowFloorSlide" layoutX="559.0" layoutY="206.0" text="0" />
+            <Label fx:id="ShowKitchenSlide" layoutX="559.0" layoutY="250.0" text="0" />
+         </children>
+      </Pane>
+      <Pane fx:id="addInspectorPane" layoutX="197.0" layoutY="80.0" prefHeight="442.0" prefWidth="646.0" visible="false">
+         <children>
+            <VBox prefHeight="424.0" prefWidth="313.0">
+               <children>
+                  <HBox prefHeight="68.0" prefWidth="298.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="FirstNameText" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="67.0" prefWidth="298.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="LastNameText" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="64.0" prefWidth="298.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="IDText" prefHeight="25.0" prefWidth="216.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </VBox>
+            <Button fx:id="BaddInspectorButton" layoutX="401.0" layoutY="14.0" mnemonicParsing="false" onAction="#addInspectorButton" text="Add Inspector" />
+         </children>
+      </Pane>
+      <ScrollPane fx:id="detailsPane" layoutX="208.0" layoutY="80.0" prefHeight="442.0" prefWidth="632.0" visible="false">
+         <content>
+            <TextArea fx:id="TextAreaForInfo" prefHeight="438.0" prefWidth="631.0">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font></TextArea>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
